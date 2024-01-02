@@ -3,10 +3,10 @@ pipeline{
     environment{
         VERSION='1.3'
     }
-    parameters{
-        string(name: 'version', defaultValue='1.3', description='...')
-        choice(name: 'Blah', choices: ['1', '2', '3'], description: '...')
-        booleanParam(name: 'Test',defaultValue=true,description='...')
+    parameters {
+        string(name: 'version', defaultValue: '1.3')
+        choice(name: 'Blah', choices: ['1', '2', '3'])
+        booleanParam(name: 'Test', defaultValue: true)
     }
     stages{
         stage("build"){
