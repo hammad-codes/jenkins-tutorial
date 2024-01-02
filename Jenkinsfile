@@ -39,8 +39,8 @@ pipeline{
                     echo "${USER} ${PASSWORD}"
                     echo "Deployed"
                     script{
-                        docker login -u ${USER} -p ${PASSWORD}
-                        echo loggedIn
+                        sh docker login -u ${USER} -p ${PASSWORD}
+                        sh echo loggedIn
                     }
                 }
             }
