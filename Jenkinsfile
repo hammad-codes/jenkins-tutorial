@@ -33,6 +33,12 @@ pipeline{
         stage("deploy"){
             steps{
                 echo "deploying..."
+                withCredentials([
+                    usernamePassword(credentialsId:'server-credentials', usernameVariable:'USER',passwordVariable:'PASSWORD')
+                ]){
+                    echo "${USER} ${PASSWORD}"
+                    echo "Deployed"
+                }
             }
         }
     }
