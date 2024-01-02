@@ -1,9 +1,22 @@
 pipeline{
     agent any
+    environment{
+        VERSION='1.3'
+    }
+    parameters{
+        string(name: 'version', defaultValue='1.3', description='...')
+        choice(name: 'Blah', choices: ['1', '2', '3'], description: '...')
+        booleanParameter(name: 'Test',defaultValue=true,description='...')
+    }
     stages{
         stage("build"){
+            when{
+                expression{
+                    BRANCH_NAME == "main"
+                }
+            }
             steps{
-                echo "building..."
+                echo "building with version ${VERSION}"
             }
 
         }
