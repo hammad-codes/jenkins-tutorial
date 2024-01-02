@@ -21,6 +21,11 @@ pipeline{
 
         }
         stage("test"){
+            when{
+                expression{
+                    params.Test == true
+                }
+            }
             steps{
                 echo "testing..."
             }
